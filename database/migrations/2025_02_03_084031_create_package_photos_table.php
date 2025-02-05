@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('photo');
             $table->foreignId('package_tour_id')->constrained()->onDelete('cascade');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
