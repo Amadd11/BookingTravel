@@ -25,12 +25,12 @@ class StorePackageTourRequest extends FormRequest
             //
             'name' => ['required', 'string', 'max:255'],
             'location' => ['required', 'string', 'max:255'],
-            'thumbnail' => ['required', 'image', 'mimes:png,jpg,jpeg'],
+            'thumbnail' => ['sometimes', 'image', 'mimes:png,jpg,jpeg'],
             'category_id' => ['required', 'integer'],
             'price' => ['required', 'integer'],
             'days' => ['required', 'integer'],
             'about' => ['required', 'string', 'max:65535'],
-            'package_photos' => ['required', 'image', 'mimes:png,jpg,jpeg'],
+            'package_photos' => ['sometimes', 'image', 'mimes:png,jpg,jpeg'],
         ];
     }
 }
