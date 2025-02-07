@@ -11,7 +11,7 @@ class PackageBooking extends Model
 
     protected $fillable = [
         'proof',
-        'quantitiy',
+        'quantity',
         'total_amount',
         'insurance',
         'tax',
@@ -24,6 +24,11 @@ class PackageBooking extends Model
         'package_bank_id',
     ];
 
+    protected $casts = [
+        'start_date' => 'date',
+        'end_date' => 'date',
+    ];
+
     public function user()
     {
         return $this->belongsTo(User::class);
@@ -31,7 +36,7 @@ class PackageBooking extends Model
 
     public function packageTour()
     {
-        return $this->belongsTo(PackageTour::class);
+        return $this->belongsTo(PackageTour::class, 'package_tour_id');
     }
 
     public function packageBank()

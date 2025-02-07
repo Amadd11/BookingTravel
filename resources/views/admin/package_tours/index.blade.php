@@ -5,7 +5,7 @@
                 {{ __('Manage Tours') }}
             </h2>
             <a href="{{ route('admin.package_tours.create') }}"
-                class="px-6 py-4 font-bold text-white bg-indigo-700 rounded-full">
+                class="px-6 py-2 font-bold text-white transition duration-200 bg-indigo-700 rounded-full hover:bg-indigo-800">
                 Add New
             </a>
         </div>
@@ -16,33 +16,33 @@
             <div class="flex flex-col p-10 overflow-hidden bg-white shadow-sm sm:rounded-lg gap-y-5">
 
                 @forelse ($package_tours as $tour)
-                    <div class="flex flex-row items-center justify-between item-card">
-                        <div class="flex flex-row items-center gap-x-3">
-                            <img src="{{ Storage::url($tour->thumbnail) }}" alt=""
+                    <div class="flex flex-row items-center justify-between p-4 border-b border-gray-200">
+                        <div class="flex flex-row items-center gap-x-4">
+                            <img src="{{ Storage::url($tour->thumbnail) }}" alt="{{ $tour->name }}"
                                 class="rounded-2xl object-cover w-[120px] h-[90px]">
                             <div class="flex flex-col">
                                 <h3 class="text-xl font-bold text-indigo-950">{{ $tour->name }}</h3>
                                 <p class="text-sm text-slate-500">{{ $tour->category->name }}</p>
                             </div>
                         </div>
-                        <div class="flex-col hidden md:flex">
+                        <div class="flex-col items-center hidden text-center md:flex">
                             <p class="text-sm text-slate-500">Price</p>
                             <h3 class="text-xl font-bold text-indigo-950">Rp
                                 {{ number_format($tour->price, 0, ',', '.') }}</h3>
                         </div>
-                        <div class="flex-col hidden md:flex">
+                        <div class="flex-col items-center hidden text-center md:flex">
                             <p class="text-sm text-slate-500">Total Days</p>
                             <h3 class="text-xl font-bold text-indigo-950">{{ $tour->days }} Days</h3>
                         </div>
                         <div class="flex-row items-center hidden md:flex gap-x-3">
                             <a href="{{ route('admin.package_tours.show', $tour) }}"
-                                class="px-6 py-4 font-bold text-white bg-indigo-700 rounded-full">
+                                class="px-4 py-2 font-bold text-white transition duration-200 bg-indigo-700 rounded-full hover:bg-indigo-800">
                                 Manage
                             </a>
                         </div>
                     </div>
                 @empty
-                    <p>belum ada package tour terbaru</p>
+                    <p class="text-center text-gray-500">Belum ada package tour terbaru</p>
                 @endforelse
 
             </div>
