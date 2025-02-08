@@ -12,7 +12,7 @@
 <body class="text-black font-poppins">
     <section id="content" class="max-w-[640px] w-full mx-auto bg-[#F9F2EF] min-h-screen flex flex-col gap-8 pb-[120px]">
         <nav class="flex items-center justify-between w-full px-4 mt-8">
-            <a href="details.html">
+            <a href="{{ route('front.details', $packageTour->slug) }}">
                 <img src="{{ asset('assets/icons/back.png') }}" alt="back">
             </a>
             <p class="m-auto font-semibold text-center">Booking</p>

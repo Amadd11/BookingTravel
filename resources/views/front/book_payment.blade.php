@@ -20,7 +20,6 @@
         </nav>
         <form enctype="multipart/form-data" action="{{ route('front.book_payment_store', $packageBooking) }}"
             method="POST">
-            class="flex flex-col gap-8">
             @csrf
             @method('PATCH')
             <div class="flex flex-col gap-3 px-4 ">

@@ -29,9 +29,9 @@ class PackageBooking extends Model
         'end_date' => 'date',
     ];
 
-    public function user()
+    public function customer()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'user_id');
     }
 
     public function packageTour()

@@ -205,7 +205,7 @@
                     <p class="font-semibold text-xs leading-[20px] tracking-[0.35px]">Search</p>
                 </div>
             </a>
-            <a href="schedule.html" class="opacity-25 menu">
+            <a href="{{ route('dashboard.my_bookings') }}" class="opacity-25 menu">
                 <div class="flex flex-col justify-center gap-1 w-fit">
                     <div class="w-4 h-4 flex shrink-0 overflow-hidden mx-auto text-[#4D73FF]">
                         <img src="assets/icons/calendar-blue.svg" alt="icon">

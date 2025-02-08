@@ -52,7 +52,7 @@ Route::middleware('auth')->group(function () {
 
         Route::middleware('can:view orders')->group(function () {
             Route::get('/my-bookings', [DashboardController::class, 'my_bookings'])
-                ->name('bookings');
+                ->name('my_bookings');
 
             Route::get('/my-bookings/details/{packageBooking}', [DashboardController::class, 'booking_details'])
                 ->name('booking.details');
