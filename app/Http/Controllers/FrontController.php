@@ -11,13 +11,19 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\StorePackageBookingRequest;
 use App\Http\Requests\UpdatePackageBookingRequest;
 use App\Http\Requests\StorePackageBookingCheckoutRequest;
+use App\Models\Category;
 
 class FrontController extends Controller
 {
     public function index()
     {
+        $categories = Category::orderByDesc('id')->get();
         $package_tours = PackageTour::orderByDesc('id')->take(4)->get();
-        return view('front.index', compact('package_tours'));
+        return view('front.index', compact('package_tours', 'categories'));
+    }
+    public function category(Category $category)
+    {
+        return view('front.category', compact('category'));
     }
 
     public function details(PackageTour $packageTour)

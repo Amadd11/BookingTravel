@@ -13,7 +13,7 @@ use App\Http\Controllers\PackageBookingController;
 use App\Http\Controllers\PackageTourController;
 
 Route::get('/', [FrontController::class, 'index'])->name('front.index');
-Route::get('/category/{category:slug}', [FrontController::class, 'category'])->name('front.categroy');
+Route::get('/category/{category:slug}', [FrontController::class, 'category'])->name('front.category');
 Route::get('/details/{packageTour:slug}', [FrontController::class, 'details'])->name('front.details');
 
 Route::get('/dashboard', function () {
