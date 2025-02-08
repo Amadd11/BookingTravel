@@ -19,7 +19,7 @@
 
                 @role('customer')
                     <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                        <x-nav-link :href="route('dashboard.bookings')" :active="request()->routeIs('dashboard.bookings')">
+                        <x-nav-link :href="route('dashboard.my_bookings')" :active="request()->routeIs('dashboard.my_bookings')">
                             {{ __('My Bookings') }}
                         </x-nav-link>
                     </div>
@@ -57,7 +57,9 @@
                     <x-slot name="trigger">
                         <button
                             class="inline-flex items-center px-3 py-2 text-sm font-medium leading-4 text-gray-500 transition duration-150 ease-in-out bg-white border border-transparent rounded-md hover:text-gray-700 focus:outline-none">
-                            <div>{{ Auth::user()->name }}</div>
+                            @auth
+                                <div>{{ Auth::user()->name }}</div>
+                            @endauth
 
                             <div class="ms-1">
                                 <svg class="w-4 h-4 fill-current" xmlns="http://www.w3.org/2000/svg"
@@ -113,7 +115,7 @@
             </x-responsive-nav-link>
 
             @role('customer')
-                <x-responsive-nav-link :href="route('dashboard.bookings')" :active="request()->routeIs('dashboard.bookings')">
+                <x-responsive-nav-link :href="route('dashboard.my_bookings')" :active="request()->routeIs('dashboard.my_bookings')">
                     {{ __('My Bookings') }}
                 </x-responsive-nav-link>
             @endrole

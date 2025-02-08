@@ -1,15 +1,5 @@
-<!doctype html>
-<html>
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="{{ asset('output.css') }}" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
-        rel="stylesheet" />
-</head>
-
-<body class="text-black font-poppins">
+@extends('front.layouts.app')
+@section('content')
     <section id="content" class="max-w-[640px] w-full mx-auto bg-[#F9F2EF] min-h-screen flex flex-col gap-8 pb-8">
         <nav class="flex items-center justify-between w-full px-4 mt-8">
             <a href="booking.html">
@@ -30,7 +20,6 @@
                         {{ $error }}
                     </div>
                 @endforeach
-
             @endif
 
             <form action="{{ route('front.choose_bank_store', $packageBooking) }}" method="POST"
@@ -61,6 +50,4 @@
             </form>
         </div>
     </section>
-</body>
-
-</html>
+@endsection

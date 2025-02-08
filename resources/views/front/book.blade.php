@@ -1,15 +1,5 @@
-<!doctype html>
-<html>
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="{{ asset('output.css') }}" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
-        rel="stylesheet" />
-</head>
-
-<body class="text-black font-poppins">
+@extends('front.layouts.app')
+@section('content')
     <section id="content" class="max-w-[640px] w-full mx-auto bg-[#F9F2EF] min-h-screen flex flex-col gap-8 pb-[120px]">
         <nav class="flex items-center justify-between w-full px-4 mt-8">
             <a href="{{ route('front.details', $packageTour->slug) }}">
@@ -23,8 +13,7 @@
 
             <div class="flex flex-col gap-3 px-4 ">
                 <p class="font-semibold">Start Date</p>
-                <div
-                    class="flex items-center gap-[10px] bg-white p-[16px_24px] rounded-[37px] transition-all duration-300">
+                <div class="flex items-center gap-[10px] bg-white p-[16px_24px] rounded-[37px] transition-all duration-300">
                     <input type="date" name="start_date" id="start_date"
                         class="appearance-none outline-none w-full relative text-sm tracking-035 leading-[22px] [&::-webkit-calendar-picker-indicator]:absolute [&::-webkit-calendar-picker-indicator]:w-full [&::-webkit-calendar-picker-indicator]:h-full [&::-webkit-calendar-picker-indicator]:opacity-0">
                     <div class="flex w-6 h-6 shrink-0">
@@ -50,8 +39,8 @@
                         </div>
                     </div>
                     <div class="flex items-center justify-end flex-1 gap-2">
-                        <button type="button" id="remove-quantity"><img
-                                src="{{ asset('assets/icons/minus-square.svg') }}" alt="icon"></button>
+                        <button type="button" id="remove-quantity"><img src="{{ asset('assets/icons/minus-square.svg') }}"
+                                alt="icon"></button>
                         <p id="quantity" class="text-sm font-semibold">1</p>
                         <input type="hidden" name="quantity" id="quantity_input" value="1" />
                         <input type="hidden" name="packageTourPrice" id="packageTourPrice"
@@ -107,9 +96,10 @@
             </div>
         </form>
     </section>
+@endsection
 
+@push('after-scripts')
     <script src="{{ asset('js/booking.js') }}"></script>
-
     <script>
         function calculatePrice() {
             let subTotal = 0;
@@ -179,6 +169,4 @@
             calculatePrice(); // Initial calculation
         });
     </script>
-</body>
-
-</html>
+@endpush

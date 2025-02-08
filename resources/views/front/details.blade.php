@@ -1,15 +1,5 @@
-<!doctype html>
-<html>
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="{{ asset('output.css') }}" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
-        rel="stylesheet" />
-</head>
-
-<body class="text-black font-poppins">
+@extends('front.layouts.app')
+@section('content')
     <section id="content" class="max-w-[640px] w-full mx-auto bg-[#F9F2EF] min-h-screen flex flex-col gap-8 pb-[120px]">
         <nav class="flex items-center justify-between w-full px-4 mt-8">
             <a href="{{ route('front.index') }}">
@@ -28,8 +18,8 @@
             <div class="grid grid-cols-4 gap-4 mx-auto w-fit">
                 <a href="{{ Storage::url($packageTour->thumbnail) }}"
                     class="thumbnail-option w-[74px] h-[74px] flex shrink-0 rounded-xl border-2 overflow-hidden mx-auto border-blue">
-                    <img src="{{ Storage::url($packageTour->thumbnail) }}"
-                        class="object-cover object-center w-full h-full" alt="thumbnail">
+                    <img src="{{ Storage::url($packageTour->thumbnail) }}" class="object-cover object-center w-full h-full"
+                        alt="thumbnail">
                 </a>
                 @foreach ($latestPhotos as $photo)
                     <a href="{{ Storage::url($photo->photo) }}"
@@ -173,9 +163,7 @@
                 Now</a>
         </div>
     </section>
-
+@endsection
+@push('after-scripts')
     <script src="{{ asset('js/details.js') }}"></script>
-
-</body>
-
-</html>
+@endpush
